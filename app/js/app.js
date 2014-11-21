@@ -9,6 +9,10 @@ campusBuildingLocator.config(['$routeProvider', function ($routeProvider) {
       templateUrl: 'partials/search.html',
       controller: 'SearchCtrl'
     }).
+    when('/map/:query', {
+      templateUrl: 'partials/map.html',
+      controller: 'MapCtrl'
+    }).
     otherwise({
       redirectTo: '/search'
     });
