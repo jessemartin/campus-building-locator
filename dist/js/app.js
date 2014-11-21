@@ -1,0 +1,1 @@
+var campusBuildingLocator=angular.module("campusBuildingLocator",["ngRoute","campusBuildingLocatorControllers"]);campusBuildingLocator.config(["$routeProvider",function(r){r.when("/search",{templateUrl:"partials/search.html",controller:"SearchCtrl"}).otherwise({redirectTo:"/search"})}]);

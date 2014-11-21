@@ -1,0 +1,1 @@
+var campusBuildingLocatorControllers=angular.module("campusBuildingLocatorControllers",[]);campusBuildingLocatorControllers.controller("SearchCtrl",["$scope","$http",function(o){o.orderProp="age"}]);
