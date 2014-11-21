@@ -15,10 +15,7 @@ campusBuildingLocatorControllers.controller(
           return;
         }
         var url = '/map/' + buildingQuery;
-        console.log(url);
-
         $location.path(url);
-        // $scope.$apply();
       };
     }
   ]
@@ -28,8 +25,10 @@ campusBuildingLocatorControllers.controller(
   'MapCtrl',
   [
     '$scope',
-    '$http',
-    function ($scope, $http) {
+    '$routeParams',
+    function ($scope, $routeParams) {
+      var query = $routeParams.query;
+      $scope.query = query;
     }
   ]
 );
