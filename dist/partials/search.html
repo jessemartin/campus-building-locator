@@ -1,13 +1,15 @@
-<canvas id="campus-map"></canvas>
-
 <div class="row">
   <div class="col-lg-3">
-    <label>Building number:</label>
-    <div class="input-group">
-      <input type="text" class="form-control" ng-model="query">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button" ng-click="searchForBuilding(query)">Go!</button>
-      </span>
-    </div>
+    <form ng-submit="searchForBuilding(query)">
+      <label>Building number:</label>
+      <div class="input-group">
+        <input type="text" class="form-control" ng-model="query">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+      </div>
+    </form>
   </div>
 </div>
+
+<canvas id="campus-map"></canvas>

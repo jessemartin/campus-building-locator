@@ -51,7 +51,7 @@
 
   gulp.task('js', ['clean'], function () {
     return gulp.src('app/js/**/*.js')
-        // .pipe(uglify())
+        .pipe(uglify())
         .pipe(gulp.dest(JS_DIST));
   });
 

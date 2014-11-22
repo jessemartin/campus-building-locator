@@ -2,7 +2,15 @@ var campusBuildingLocatorControllers = angular.module(
   'campusBuildingLocatorControllers',
   []
 );
-
+function searchByLocation ($location) {
+  return function (buildingQuery) {
+    if (!buildingQuery) {
+      return;
+    }
+    var url = '/map/' + buildingQuery;
+    $location.path(url);
+  }
+}
 campusBuildingLocatorControllers.controller(
   'SearchCtrl',
   [
@@ -10,13 +18,7 @@ campusBuildingLocatorControllers.controller(
     '$http',
     '$location',
     function ($scope, $http, $location) {
-      $scope.searchForBuilding = function (buildingQuery) {
-        if (!buildingQuery) {
-          return;
-        }
-        var url = '/map/' + buildingQuery;
-        $location.path(url);
-      };
+      $scope.searchForBuilding = searchByLocation($location);
     }
   ]
 );
@@ -26,9 +28,10 @@ campusBuildingLocatorControllers.controller(
   [
     '$scope',
     '$routeParams',
-    function ($scope, $routeParams) {
-      var query = $routeParams.query;
-      $scope.query = query;
+    '$location',
+    function ($scope, $routeParams, $location) {
+      $scope.searchForBuilding = searchByLocation($location);
+      $scope.query = $routeParams.query;
     }
   ]
 );
