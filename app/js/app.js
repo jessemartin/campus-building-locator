@@ -5,15 +5,15 @@ var campusBuildingLocator = angular.module('campusBuildingLocator', [
 
 campusBuildingLocator.config(['$routeProvider', function ($routeProvider) {
   $routeProvider.
-    when('/search', {
-      templateUrl: 'partials/search.html',
-      controller: 'SearchCtrl'
+    when('/map', {
+      templateUrl: 'partials/map.html',
+      controller: 'MapCtrl'
     }).
     when('/map/:query', {
       templateUrl: 'partials/map.html',
       controller: 'MapCtrl'
     }).
     otherwise({
-      redirectTo: '/search'
+      redirectTo: '/map'
     });
 }]);
