@@ -10,10 +10,10 @@ campusBuildingLocatorControllers.controller(
     '$location',
     function ($scope, $location) {
       $scope.searchForBuilding = function (buildingQuery) {
-        if (!buildingQuery) {
-          return;
+        var url = '/map';
+        if (buildingQuery) {
+          url += '/' + buildingQuery;
         }
-        var url = '/map/' + buildingQuery;
         $location.path(url);
       }
     }
