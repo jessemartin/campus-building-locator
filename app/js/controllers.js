@@ -26,7 +26,12 @@ campusBuildingLocatorControllers.controller(
     '$scope',
     '$routeParams',
     function ($scope, $routeParams) {
-      $scope.query = $routeParams.query;
+      var query = $routeParams.query;
+      if (!query) {
+        // $scope.results.hide();
+      } else {
+        $scope.query = query;
+      }
     }
   ]
 );
