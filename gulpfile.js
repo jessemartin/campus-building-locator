@@ -9,8 +9,6 @@
     del = require('del'),
     imagemin = require('gulp-imagemin'),
     server = require('./server/app.js'),
-    LESS_DIR = 'app/css',
-    JS_DIR = 'app/js',
     API_DIST = 'dist/api',
     CSS_DIST = 'dist/css',
     JS_DIST = 'dist/js';
@@ -44,7 +42,7 @@
   });
 
   gulp.task('css', ['clean'], function () {
-    return gulp.src(LESS_DIR + '/main.less')
+    return gulp.src('app/css/main.less')
         .pipe(changed(CSS_DIST))
         .pipe(less())
         .pipe(gulp.dest(CSS_DIST));
