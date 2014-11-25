@@ -13,12 +13,12 @@ campusBuildingLocator.factory('ConfigurationService', function() {
 campusBuildingLocator.config(['$routeProvider', function ($routeProvider) {
   $routeProvider.
     when(SEARCH_PATH, {
-      templateUrl: 'partials/map.html',
-      controller: 'MapCtrl'
+      templateUrl: 'partials/results.html',
+      controller: 'ResultsCtrl'
     }).
     when(SEARCH_PATH + '/:query', {
-      templateUrl: 'partials/map.html',
-      controller: 'MapCtrl'
+      templateUrl: 'partials/results.html',
+      controller: 'ResultsCtrl'
     }).
     otherwise({
       redirectTo: SEARCH_PATH

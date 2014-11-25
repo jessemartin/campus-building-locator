@@ -22,7 +22,7 @@ campusBuildingLocatorControllers.controller(
 );
 
 campusBuildingLocatorControllers.controller(
-  'MapCtrl',
+  'ResultsCtrl',
   [
     '$scope',
     '$routeParams',
