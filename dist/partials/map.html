@@ -1,3 +1,17 @@
 <div ng-include="'partials/search.html'" ng-controller="SearchCtrl"></div>
-<p class="text-center" ng-if="query">Results for: {{query}}</p>
+<div class="container">
+  <div class="row" ng-repeat="result in results">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <h4 class="list-group-item-heading">{{result.name}}</h4>
+      <p class="list-group-item-text">
+        <address>{{result.location}}</address>
+        <a href="{{result.gmap_url}}">google</a>
+        <a href="{{result.bing_url}}">bing</a>
+      </p>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
+
 <canvas id="campus-map"></canvas>

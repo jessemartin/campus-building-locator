@@ -31,7 +31,9 @@ campusBuildingLocatorControllers.controller(
       if (query) {
         $scope.query = query;
         $http.get('api/buildings.json').success(function (data) {
-          console.log('got buildings!:', data);
+          var buildings = data.buildings;
+          var results = [buildings[query]];
+          $scope.results = results;
         });
       }
     }
