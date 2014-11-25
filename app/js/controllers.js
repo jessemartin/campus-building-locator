@@ -25,12 +25,14 @@ campusBuildingLocatorControllers.controller(
   [
     '$scope',
     '$routeParams',
-    function ($scope, $routeParams) {
+    '$http',
+    function ($scope, $routeParams, $http) {
       var query = $routeParams.query;
-      if (!query) {
-        // $scope.results.hide();
-      } else {
+      if (query) {
         $scope.query = query;
+        $http.get('api/buildings.json').success(function (data) {
+          console.log('got buildings!:', data);
+        });
       }
     }
   ]

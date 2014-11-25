@@ -15,6 +15,11 @@ module.exports = function () {
     res.sendfile(DIST_DIR + '/' + req.url);
   });
 
+  app.get('*.json', function (req, res) {
+    console.log('serving:  ', DIST_DIR + req.url)
+    res.sendfile(DIST_DIR + req.url);
+  });
+
   app.get('*.css', function (req, res) {
     res.sendfile(DIST_DIR + '/' + req.url);
   });

@@ -11,6 +11,7 @@
     server = require('./server/app.js'),
     LESS_DIR = 'app/css',
     JS_DIR = 'app/js',
+    API_DIST = 'dist/api',
     CSS_DIST = 'dist/css',
     JS_DIST = 'dist/js';
 
@@ -55,7 +56,12 @@
         .pipe(gulp.dest(JS_DIST));
   });
 
-  gulp.task('build', ['clean', 'css', 'js', 'vendor', 'images', 'pages']);
+  gulp.task('api', ['clean'], function () {
+    return gulp.src('app/api/**/*.json')
+        .pipe(gulp.dest(API_DIST));
+  });
+
+  gulp.task('build', ['clean', 'css', 'js', 'api', 'vendor', 'images', 'pages']);
 
   gulp.task('watch', function () {
     server = require('./server/app.js');
