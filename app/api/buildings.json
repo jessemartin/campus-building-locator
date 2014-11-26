@@ -1,5 +1,6 @@
 {
   "buildings": {
+    "30": { "name": "30", "location": "3910 163rd Avenue NE, Redmond, WA 98052" },
     "32": { "name": "32", "location": "3620 163rd Ave NE Redmond, WA 98052" }
   }
 }
