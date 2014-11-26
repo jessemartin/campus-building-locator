@@ -10,10 +10,10 @@ campusBuildingLocatorControllers.controller(
     '$location',
     'ConfigurationService',
     function ($scope, $location, ConfigurationService) {
-      $scope.searchForBuilding = function (buildingQuery) {
+      $scope.searchForBuilding = function (query) {
         var url = ConfigurationService.search_path;
-        if (buildingQuery) {
-          url += '/' + buildingQuery;
+        if (query) {
+          url += '/' + query;
         }
         $location.path(url);
       }
