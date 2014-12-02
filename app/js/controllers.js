@@ -1,9 +1,9 @@
-var campusBuildingLocatorControllers = angular.module(
-  'campusBuildingLocatorControllers',
+var campusBuildingControllers = angular.module(
+  'campusBuildingControllers',
   []
 );
 
-campusBuildingLocatorControllers.controller(
+campusBuildingControllers.controller(
   'SearchCtrl',
   [
     '$scope',
@@ -21,7 +21,7 @@ campusBuildingLocatorControllers.controller(
   ]
 );
 
-campusBuildingLocatorControllers.controller(
+campusBuildingControllers.controller(
   'ResultsCtrl',
   [
     '$scope',

@@ -1,8 +1,8 @@
 var SEARCH_PATH = '/buildings';
-var campusBuildingLocator = angular
-  .module('campusBuildingLocator', [
+var campusBuilding = angular
+  .module('campusBuilding', [
     'ngRoute',
-    'campusBuildingLocatorControllers'
+    'campusBuildingControllers'
   ])
   .factory('ConfigurationService', function() {
     return {
@@ -18,17 +18,20 @@ var campusBuildingLocator = angular
       }
     };
   })
+  .filter('encodeURIComponent', function () {
+    return window.encodeURIComponent;
+  })
   .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.
-      when(SEARCH_PATH, {
+    $routeProvider
+      .when(SEARCH_PATH, {
         templateUrl: 'partials/results.html',
         controller: 'ResultsCtrl'
-      }).
-      when(SEARCH_PATH + '/:query', {
+      })
+      .when(SEARCH_PATH + '/:query', {
         templateUrl: 'partials/results.html',
         controller: 'ResultsCtrl'
-      }).
-      otherwise({
+      })
+      .otherwise({
         redirectTo: SEARCH_PATH
       });
   }]);

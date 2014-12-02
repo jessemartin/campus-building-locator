@@ -1,12 +1,23 @@
 <div ng-include="'partials/search.html'" ng-controller="SearchCtrl"></div>
 <div class="container">
-  <div class="row" ng-repeat="result in results">
+  <div class="row" ng-if="results.length == 0">
     <div class="col-md-4"></div>
     <div class="col-md-4">
+      <div class="alert alert-warning" role="alert">
+        <strong>{{query}}</strong> was not found.
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+  <div class="row" ng-repeat="result in results">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 alert alert-info" role="alert">
       <h3 class="list-group-item-heading">{{result.name}}</h3>
-      <p class="list-group-item-text">
-        <address>{{result.location}}</address>
-      </p>
+      <div class="list-group-item-text">
+        <address>
+          <a ng-href="maps:daddr={{result.location | encodeURIComponent}}=Current%20Location">{{result.location}}</a>
+          </address>
+      </div>
     </div>
     <div class="col-md-4"></div>
   </div>
