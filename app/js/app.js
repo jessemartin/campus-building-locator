@@ -4,7 +4,7 @@ var campusBuilding = angular
     'ngRoute',
     'campusBuildingControllers'
   ])
-  .factory('ConfigurationService', function() {
+  .factory('ConfigurationService', function () {
     return {
       search_path: SEARCH_PATH
     };
@@ -21,18 +21,23 @@ var campusBuilding = angular
   .filter('encodeURIComponent', function () {
     return window.encodeURIComponent;
   })
-  .config(['$routeProvider', function ($routeProvider) {
-    $routeProvider
-      .when(SEARCH_PATH, {
-        templateUrl: 'partials/results.html',
-        controller: 'ResultsCtrl'
-      })
-      .when(SEARCH_PATH + '/:query', {
-        templateUrl: 'partials/results.html',
-        controller: 'ResultsCtrl'
-      })
-      .otherwise({
-        redirectTo: SEARCH_PATH
-      });
-  }]);
+  .config([
+    '$compileProvider',
+    '$routeProvider',
+    function ($compileProvider, $routeProvider) {
+      $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|maps):/);
+      $routeProvider
+        .when(SEARCH_PATH, {
+          templateUrl: 'partials/results.html',
+          controller: 'ResultsCtrl'
+        })
+        .when(SEARCH_PATH + '/:query', {
+          templateUrl: 'partials/results.html',
+          controller: 'ResultsCtrl'
+        })
+        .otherwise({
+          redirectTo: SEARCH_PATH
+        });
+    }
+  ]);
 
